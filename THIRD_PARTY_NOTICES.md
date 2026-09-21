@@ -1,12 +1,12 @@
 # Third-party notices
 
-WGX Travel Skill bundles the following browser libraries so generated previews can run without a package installation step.
+WGX Travel Planning Skill bundles the following browser libraries so generated previews can run without a package installation step.
 
 ## Leaflet 1.9.4
 
 - Project: https://leafletjs.com/
 - License: BSD 2-Clause License
-- Bundled files: `hks-travel-skill/assets/frontend-template/vendor/leaflet/leaflet.js`, `leaflet.css`
+- Bundled files: `wgx-travel-planning/assets/frontend-template/vendor/leaflet/leaflet.js`, `leaflet.css`
 
 Copyright (c) 2010-2023, Vladimir Agafonkin. Copyright (c) 2010-2011, CloudMade. All rights reserved.
 
@@ -21,7 +21,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 - Project: https://lucide.dev/
 - License: ISC License
-- Bundled file: `hks-travel-skill/assets/frontend-template/lucide.js`
+- Bundled file: `wgx-travel-planning/assets/frontend-template/lucide.js`
 
 Copyright (c) 2022, Lucide Contributors
 

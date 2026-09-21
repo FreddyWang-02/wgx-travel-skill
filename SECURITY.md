@@ -6,7 +6,7 @@
 
 ## 凭据边界
 
-WGX Travel Skill 不要求把凭据写入 TravelPack、Skill 文件、日志或公开版本清单。云平台凭据应通过宿主身份、Secret 管理或环境变量注入。地图 Web Key 应配置域名白名单，并遵循地图服务商的公开使用规则。
+WGX Travel Planning Skill 不要求把凭据写入 TravelPack、Skill 文件、日志或公开版本清单。云平台凭据应通过宿主身份、Secret 管理或环境变量注入。地图 Web Key 应配置域名白名单，并遵循地图服务商的公开使用规则。
 
 `verify_cloud_deployment.mjs` 仅在用户要求验证其部署地址时调用本机 `curl`，读取目标站点的公开 HTTP 响应。脚本不会读取浏览器 Cookie、SSH 配置、云平台凭据或本地数据库。
 

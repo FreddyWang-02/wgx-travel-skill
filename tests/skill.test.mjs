@@ -6,13 +6,14 @@ import path from "node:path";
 import test from "node:test";
 
 const root = path.resolve(import.meta.dirname, "..");
-const skill = path.join(root, "hks-travel-skill");
+const skill = path.join(root, "wgx-travel-planning");
 
 test("public skill metadata and screenshots are complete", () => {
   const instructions = fs.readFileSync(path.join(skill, "SKILL.md"), "utf8");
-  assert.match(instructions, /^name: hks-travel-skill$/m);
-  assert.match(instructions, /^# WGX Travel Skill/m);
-  assert.match(instructions, /Hks-Travel-Skill/, "the legacy alias must stay documented");
+  assert.match(instructions, /^name: wgx-travel-planning$/m);
+  assert.match(instructions, /^# WGX Travel Planning Skill/m);
+  assert.match(instructions, /hks-travel-skill/, "legacy migration id must stay documented");
+  assert.match(instructions, /travel-guide-builder/, "legacy migration id must stay documented");
   for (const file of ["travel-wallet-desktop.png", "itinerary-desktop.png", "itinerary-mobile.png"]) {
     assert.ok(fs.existsSync(path.join(root, "docs/screenshots", file)), file);
   }
@@ -29,7 +30,7 @@ test("bundled sample validates", () => {
 
 test("new manifest uses public product id and legacy upgrades remain recognized", () => {
   const template = JSON.parse(fs.readFileSync(path.join(skill, "assets/deployment-manifest.template.json"), "utf8"));
-  assert.equal(template.product, "hks-travel-skill");
+  assert.equal(template.product, "wgx-travel-planning");
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), "wgx-travel-upgrade-"));
   const current = path.join(directory, "current.json");
   const target = path.join(directory, "target.json");
@@ -47,6 +48,32 @@ test("new manifest uses public product id and legacy upgrades remain recognized"
     path.join(skill, "scripts/plan_deployment_upgrade.mjs"), current, target,
   ], { encoding: "utf8" }));
   assert.equal(plan.status, "in-place-code-upgrade");
+});
+
+test("legacy hks-travel-skill deployment can migrate to the new product id", () => {
+  const template = JSON.parse(fs.readFileSync(path.join(skill, "assets/deployment-manifest.template.json"), "utf8"));
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "wgx-travel-migrate-"));
+  const current = path.join(directory, "current.json");
+  const target = path.join(directory, "target.json");
+  fs.writeFileSync(current, JSON.stringify({
+    ...template,
+    product: "hks-travel-skill",
+    skillVersion: "4.12.0",
+    frontendVersion: "4.12.0",
+    hostAdapterVersion: "2.1.0",
+    deploymentId: "legacy-hks-app",
+    siteUrl: "https://example.com",
+  }));
+  fs.writeFileSync(target, JSON.stringify({
+    ...template,
+    deploymentId: "wgx-app",
+    siteUrl: "https://example.com",
+  }));
+  const plan = JSON.parse(execFileSync(process.execPath, [
+    path.join(skill, "scripts/plan_deployment_upgrade.mjs"), current, target,
+  ], { encoding: "utf8" }));
+  assert.equal(plan.allowed, true);
+  assert.notEqual(plan.status, "downgrade-blocked", "cross-product migration must not be treated as a downgrade");
 });
 
 test("public tree passes the privacy audit", () => {

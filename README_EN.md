@@ -1,4 +1,4 @@
-# WGX Travel Skill
+# WGX Travel Planning Skill
 
 **AI-native Travel Planning Agent Skill**
 
@@ -6,10 +6,24 @@ Created and maintained by Freddy Wang
 
 English · [中文](README.md)
 
-WGX Travel Skill is a travel-planning skill for Codex and compatible agents. It connects destination research, route approval, six visual previews, TravelPack generation, editable web deployment, and safe upgrades of existing sites.
+## Positioning
 
-Current version: `4.12.0`<br>
-Skill ID: `hks-travel-skill` (legacy compatibility id, kept stable for existing deployments, generated manifests, and invocation)
+WGX Travel Planning Skill is a **travel-planning skill**. It is not an agent, and it does not define an agent architecture.
+
+It runs as a skill invoked by a host agent: the host agent handles the conversation, while this skill provides a stable planning workflow, a structured data contract, and deterministic validation scripts. It introduces no multi-agent or agent-system concepts and does not orchestrate other agents.
+
+WGX Travel Planning Skill connects destination research, route approval, six visual previews, TravelPack generation, editable web deployment, and safe upgrades of existing sites.
+
+Current version: `1.0.0`<br>
+Skill ID: `wgx-travel-planning`
+
+> Migration compatibility IDs: `hks-travel-skill`, `travel-guide-builder`. They are only recognized when upgrading an existing deployment; they are not display names and are never written into newly generated manifests.
+
+## Supported environments
+
+- **WorkBuddy**
+- **Codex**
+- Other **Skill-compatible AI environments** (place the skill directory in the Skills directory documented by that product)
 
 ## Screenshots
 
@@ -39,26 +53,39 @@ These screenshots come from a real deployment. They were reviewed for public rel
 
 ## Installation
 
-Clone the repository and copy the skill directory into your agent's Skills directory:
+Clone the repository and copy the skill directory into the Skills directory of your environment.
+
+**WorkBuddy**
 
 ```bash
 git clone https://github.com/FreddyWang-02/wgx-travel-skill.git
-cp -R wgx-travel-skill/hks-travel-skill ~/.codex/skills/hks-travel-skill
+cp -R wgx-travel-skill/wgx-travel-planning ~/.workbuddy/skills/wgx-travel-planning
 ```
 
-For another compatible agent, place `hks-travel-skill/` in the Skills directory documented by that product. Restart or refresh the agent and confirm that `$hks-travel-skill` is available.
+**Restart or refresh WorkBuddy** afterwards: the skill index is loaded at startup. You can then invoke it with `$wgx-travel-planning`.
+
+**Codex**
+
+```bash
+git clone https://github.com/FreddyWang-02/wgx-travel-skill.git
+cp -R wgx-travel-skill/wgx-travel-planning ~/.codex/skills/wgx-travel-planning
+```
+
+**Other skill-compatible environments**
+
+Place `wgx-travel-planning/` in the Skills directory documented by that product, keeping the directory name identical to the `name` field in `SKILL.md`. Restart or refresh the agent and confirm that `$wgx-travel-planning` is available.
 
 ## Usage
 
 ```text
-Use $hks-travel-skill to plan a nine-day trip to Lijiang and Shangri-La.
+Use $wgx-travel-planning to plan a nine-day trip to Lijiang and Shangri-La.
 Confirm my preferences and route first, show me the UI styles, and deploy an editable site only after I approve deployment.
 ```
 
 To upgrade an existing deployment:
 
 ```text
-Use the latest WGX Travel Skill to upgrade this site: <site URL>.
+Use the latest WGX Travel Planning Skill to upgrade this site: <site URL>.
 Preserve the database, user edits, attachments, access links, and domain. Back up first, then verify both edit and read-only flows.
 ```
 
@@ -74,7 +101,7 @@ Inject credentials through the host identity system, secret manager, or environm
 
 ```text
 wgx-travel-skill/
-├── hks-travel-skill/
+├── wgx-travel-planning/
 │   ├── SKILL.md
 │   ├── agents/
 │   ├── assets/

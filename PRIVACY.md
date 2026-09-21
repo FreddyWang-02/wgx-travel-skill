@@ -1,10 +1,10 @@
 # 开源隐私边界 / Open-source privacy boundary
 
-本文定义 WGX Travel Skill 公开仓库允许包含的内容，以及必须留在本地或云平台 Secret 系统中的内容。
+本文定义 WGX Travel Planning Skill 公开仓库允许包含的内容，以及必须留在本地或云平台 Secret 系统中的内容。
 
 ## 可以公开
 
-- `hks-travel-skill/` 内的指令、参考资料、模板和确定性脚本。
+- `wgx-travel-planning/` 内的指令、参考资料、模板和确定性脚本。
 - 使用虚构人员、示例域名与匿名 ID 的 TravelPack 示例。
 - 已完成画面级隐私检查的产品截图。
 - 不含凭据的 `travel-app-manifest.json` 模板。

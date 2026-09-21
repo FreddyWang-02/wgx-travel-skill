@@ -12,7 +12,7 @@
 - Skill 结构校验：通过
 - 开源仓库自动化测试：通过
 
-待复核项为 `hks-travel-skill/scripts/verify_cloud_deployment.mjs` 调用本机 `curl` 验证用户指定的部署地址。该脚本只读取目标站点的 HTTP 响应，并在部署验收场景中按用户授权运行。安全边界已经写入 `SECURITY.md`。
+待复核项为 `wgx-travel-planning/scripts/verify_cloud_deployment.mjs` 调用本机 `curl` 验证用户指定的部署地址。该脚本只读取目标站点的 HTTP 响应，并在部署验收场景中按用户授权运行。安全边界已经写入 `SECURITY.md`。
 
 ## 已隔离内容
 

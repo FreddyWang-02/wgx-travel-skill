@@ -43,7 +43,9 @@ function migrationFor(target, from, to) {
 
 const current = readJson(currentPath);
 const target = readJson(targetPath);
-const supportedProducts = new Set(["hks-travel-skill", "travel-guide-builder"]);
+const CURRENT_PRODUCT = "wgx-travel-planning";
+// 迁移兼容：既有部署可能仍持有旧 product id，升级时继续识别，但不作为展示名、不生成新清单。
+const supportedProducts = new Set([CURRENT_PRODUCT, "hks-travel-skill", "travel-guide-builder"]);
 const common = {
   deployment: {
     mode: current.deploymentMode || null,
@@ -73,14 +75,15 @@ if (!supportedProducts.has(current.product) || !current.skillVersion || !current
     allowed: false,
     reason: "当前部署缺少可信版本清单；先备份数据并审计原项目，禁止直接覆盖。",
   };
-} else if (target.product !== "hks-travel-skill" || !target.skillVersion || !target.dataSchemaVersion) {
+} else if (target.product !== CURRENT_PRODUCT || !target.skillVersion || !target.dataSchemaVersion) {
   result = { ...common, status: "invalid-target-manifest", allowed: false, reason: "目标版本清单无效。" };
 } else if (compareVersions(current.skillVersion, target.skillVersion) === null) {
   result = { ...common, status: "invalid-version", allowed: false, reason: "Skill 版本必须使用 x.y.z。" };
-} else if (compareVersions(current.skillVersion, target.skillVersion) > 0) {
+} else if (current.product === target.product && compareVersions(current.skillVersion, target.skillVersion) > 0) {
   result = { ...common, status: "downgrade-blocked", allowed: false, reason: "目标 Skill 版本低于线上版本，默认禁止降级。" };
 } else if (
-  compareVersions(current.skillVersion, target.skillVersion) === 0
+  current.product === target.product
+  && compareVersions(current.skillVersion, target.skillVersion) === 0
   && current.frontendVersion === target.frontendVersion
   && current.hostAdapterVersion === target.hostAdapterVersion
   && current.dataSchemaVersion === target.dataSchemaVersion

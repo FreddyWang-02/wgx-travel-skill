@@ -1,8 +1,9 @@
 {
   "manifestVersion": "1.0.0",
-  "product": "hks-travel-skill",
-  "skillVersion": "4.12.0",
-  "frontendVersion": "4.12.0",
+  "product": "wgx-travel-planning",
+  "skillVersion": "1.0.0",
+  "frontendVersion": "1.0.0",
+  "legacyProductIds": ["hks-travel-skill", "travel-guide-builder"],
   "hostAdapterVersion": "2.1.0",
   "dataSchemaVersion": "1.1.0",
   "compatibleDataSchemaVersions": ["1.1.0"],

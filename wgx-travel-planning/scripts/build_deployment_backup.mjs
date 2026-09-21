@@ -20,8 +20,10 @@ if (errors.length) {
   console.error(errors.map((item) => `${item.path}: ${item.message}`).join("\n"));
   process.exit(1);
 }
-if (!["hks-travel-skill", "travel-guide-builder"].includes(manifest.product)) {
-  console.error("Deployment manifest product must be hks-travel-skill or the legacy travel-guide-builder id");
+const CURRENT_PRODUCT = "wgx-travel-planning";
+const LEGACY_PRODUCTS = ["hks-travel-skill", "travel-guide-builder"];
+if (manifest.product !== CURRENT_PRODUCT && !LEGACY_PRODUCTS.includes(manifest.product)) {
+  console.error(`Deployment manifest product must be ${CURRENT_PRODUCT} or one of the legacy ids: ${LEGACY_PRODUCTS.join(", ")}`);
   process.exit(1);
 }
 
@@ -37,7 +39,7 @@ const files = {
 };
 if (attachmentPath) files["attachment-manifest.json"] = writeJson("attachment-manifest.json", JSON.parse(fs.readFileSync(attachmentPath, "utf8")));
 const metadata = {
-  format: "hks-travel-skill-deployment-backup",
+  format: "wgx-travel-planning-deployment-backup",
   formatVersion: "1.0.0",
   createdAt: new Date().toISOString(),
   tripId: pack.trip.id,

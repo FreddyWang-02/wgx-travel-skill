@@ -1,4 +1,4 @@
-# WGX Travel Skill
+# WGX Travel Planning Skill
 
 **AI-native Travel Planning Agent Skill**
 
@@ -6,10 +6,24 @@ Created and maintained by Freddy Wang
 
 [English](README_EN.md) · 中文
 
-WGX Travel Skill 是一个面向 Codex 与兼容 Agent 的旅行攻略 Skill。它把目的地研究、路线确认、六种 UI 风格预览、TravelPack 数据生成、可编辑网站部署和既有网站安全升级连成完整工作流。
+## 项目定位
 
-当前版本：`4.12.0`<br>
-Skill ID：`hks-travel-skill`（历史兼容 ID，为保证既有部署、已生成的版本清单和调用名稳定而保持不变）
+WGX Travel Planning Skill 是一个**旅行规划 Skill**——它不是一个 Agent，也不定义任何 Agent 架构。
+
+它作为可被宿主 Agent 调用的 Skill 运行：宿主 Agent 负责与用户对话，本 Skill 负责提供稳定的旅行规划工作流、结构化数据协议与确定性校验脚本。不引入 Multi-Agent、Agent System 之类的概念，也不自行编排其他 Agent。
+
+WGX Travel Planning Skill 把目的地研究、路线确认、六种 UI 风格预览、TravelPack 数据生成、可编辑网站部署和既有网站安全升级连成完整工作流。
+
+当前版本：`1.0.0`<br>
+Skill ID：`wgx-travel-planning`
+
+> 迁移兼容 ID：`hks-travel-skill`、`travel-guide-builder`。这两个 ID 仅用于升级既有部署时识别旧版本清单，不作为展示名，也不会写进新生成的清单。
+
+## 支持环境
+
+- **WorkBuddy**
+- **Codex**
+- 其他 **Skill-compatible AI environments**（把 Skill 目录放入其文档指定的 Skills 目录即可）
 
 ## 页面预览
 
@@ -39,26 +53,39 @@ Skill ID：`hks-travel-skill`（历史兼容 ID，为保证既有部署、已生
 
 ## 安装
 
-克隆仓库后，把 Skill 目录复制到 Agent 的 Skill 目录：
+克隆仓库后，把 Skill 目录复制到对应环境的 Skills 目录。
+
+**WorkBuddy**
 
 ```bash
 git clone https://github.com/FreddyWang-02/wgx-travel-skill.git
-cp -R wgx-travel-skill/hks-travel-skill ~/.codex/skills/hks-travel-skill
+cp -R wgx-travel-skill/wgx-travel-planning ~/.workbuddy/skills/wgx-travel-planning
 ```
 
-其他兼容 Agent 可以把 `hks-travel-skill/` 放入其文档指定的 Skills 目录。重启或刷新 Agent 后，确认 `$hks-travel-skill` 可以被识别。
+复制完成后**重启或刷新 WorkBuddy**，Skill 索引会在启动时加载；之后即可用 `$wgx-travel-planning` 调用。
+
+**Codex**
+
+```bash
+git clone https://github.com/FreddyWang-02/wgx-travel-skill.git
+cp -R wgx-travel-skill/wgx-travel-planning ~/.codex/skills/wgx-travel-planning
+```
+
+**其他 Skill 兼容环境**
+
+把 `wgx-travel-planning/` 放入其文档指定的 Skills 目录，目录名需与 `SKILL.md` 的 `name` 字段保持一致。重启或刷新 Agent 后，确认 `$wgx-travel-planning` 可以被识别。
 
 ## 使用
 
 ```text
-请使用 $hks-travel-skill 帮我规划 9 天丽江和香格里拉旅行。
+请使用 $wgx-travel-planning 帮我规划 9 天丽江和香格里拉旅行。
 先确认偏好和路线，再展示 UI 风格，得到我的部署授权后发布可编辑网站。
 ```
 
 更新已经部署的网站：
 
 ```text
-请使用最新版 WGX Travel Skill 升级这个网站：<网站地址>。
+请使用最新版 WGX Travel Planning Skill 升级这个网站：<网站地址>。
 保留数据库、用户编辑内容、附件、访问链接和域名；升级前备份，升级后验证编辑与只读入口。
 ```
 
@@ -74,7 +101,7 @@ cp -R wgx-travel-skill/hks-travel-skill ~/.codex/skills/hks-travel-skill
 
 ```text
 wgx-travel-skill/
-├── hks-travel-skill/
+├── wgx-travel-planning/
 │   ├── SKILL.md
 │   ├── agents/
 │   ├── assets/

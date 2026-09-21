@@ -27,7 +27,11 @@ for (const key of ["deploymentMode", "deploymentId", "siteUrl"]) {
 }
 const url = new URL(info.siteUrl);
 if (url.protocol !== "https:" && !["localhost", "127.0.0.1"].includes(url.hostname)) throw new Error("正式 siteUrl 必须使用 HTTPS");
-if (template.product !== "hks-travel-skill") throw new Error("版本清单模板无效");
+const CURRENT_PRODUCT = "wgx-travel-planning";
+const LEGACY_PRODUCTS = ["hks-travel-skill", "travel-guide-builder"];
+if (template.product !== CURRENT_PRODUCT && !LEGACY_PRODUCTS.includes(template.product)) {
+  throw new Error("版本清单模板无效");
+}
 
 const manifest = {
   ...template,
