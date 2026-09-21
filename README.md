@@ -1,11 +1,15 @@
 # WGX Travel Skill
 
+**AI-native Travel Planning Agent Skill**
+
+Created and maintained by Freddy Wang
+
 [English](README_EN.md) · 中文
 
 WGX Travel Skill 是一个面向 Codex 与兼容 Agent 的旅行攻略 Skill。它把目的地研究、路线确认、六种 UI 风格预览、TravelPack 数据生成、可编辑网站部署和既有网站安全升级连成完整工作流。
 
 当前版本：`4.12.0`<br>
-Skill ID：`hks-travel-skill`
+Skill ID：`hks-travel-skill`（历史兼容 ID，为保证既有部署、已生成的版本清单和调用名稳定而保持不变）
 
 ## 页面预览
 

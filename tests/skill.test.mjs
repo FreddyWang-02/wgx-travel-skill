@@ -11,7 +11,8 @@ const skill = path.join(root, "hks-travel-skill");
 test("public skill metadata and screenshots are complete", () => {
   const instructions = fs.readFileSync(path.join(skill, "SKILL.md"), "utf8");
   assert.match(instructions, /^name: hks-travel-skill$/m);
-  assert.match(instructions, /Hks-Travel-Skill/);
+  assert.match(instructions, /^# WGX Travel Skill/m);
+  assert.match(instructions, /Hks-Travel-Skill/, "the legacy alias must stay documented");
   for (const file of ["travel-wallet-desktop.png", "itinerary-desktop.png", "itinerary-mobile.png"]) {
     assert.ok(fs.existsSync(path.join(root, "docs/screenshots", file)), file);
   }
@@ -29,7 +30,7 @@ test("bundled sample validates", () => {
 test("new manifest uses public product id and legacy upgrades remain recognized", () => {
   const template = JSON.parse(fs.readFileSync(path.join(skill, "assets/deployment-manifest.template.json"), "utf8"));
   assert.equal(template.product, "hks-travel-skill");
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "hks-travel-upgrade-"));
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "wgx-travel-upgrade-"));
   const current = path.join(directory, "current.json");
   const target = path.join(directory, "target.json");
   fs.writeFileSync(current, JSON.stringify({
