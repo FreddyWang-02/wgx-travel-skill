@@ -1,8 +1,8 @@
-# WGX Travel Planning Skill
+# WGX Travel Skill
 
 [English](README_EN.md) · 中文
 
-WGX Travel Planning Skill 是一个面向 Codex 与兼容 Agent 的旅行攻略 Skill。它把目的地研究、路线确认、六种 UI 风格预览、TravelPack 数据生成、可编辑网站部署和既有网站安全升级连成完整工作流。
+WGX Travel Skill 是一个面向 Codex 与兼容 Agent 的旅行攻略 Skill。它把目的地研究、路线确认、六种 UI 风格预览、TravelPack 数据生成、可编辑网站部署和既有网站安全升级连成完整工作流。
 
 当前版本：`4.12.0`<br>
 Skill ID：`hks-travel-skill`
@@ -38,8 +38,8 @@ Skill ID：`hks-travel-skill`
 克隆仓库后，把 Skill 目录复制到 Agent 的 Skill 目录：
 
 ```bash
-git clone https://github.com/FreddyWang-02/WGX Travel Planning Skill.git
-cp -R WGX Travel Planning Skill/hks-travel-skill ~/.codex/skills/hks-travel-skill
+git clone https://github.com/FreddyWang-02/wgx-travel-skill.git
+cp -R wgx-travel-skill/hks-travel-skill ~/.codex/skills/hks-travel-skill
 ```
 
 其他兼容 Agent 可以把 `hks-travel-skill/` 放入其文档指定的 Skills 目录。重启或刷新 Agent 后，确认 `$hks-travel-skill` 可以被识别。
@@ -54,7 +54,7 @@ cp -R WGX Travel Planning Skill/hks-travel-skill ~/.codex/skills/hks-travel-skil
 更新已经部署的网站：
 
 ```text
-请使用最新版 WGX Travel Planning Skill 升级这个网站：<网站地址>。
+请使用最新版 WGX Travel Skill 升级这个网站：<网站地址>。
 保留数据库、用户编辑内容、附件、访问链接和域名；升级前备份，升级后验证编辑与只读入口。
 ```
 
@@ -69,7 +69,7 @@ cp -R WGX Travel Planning Skill/hks-travel-skill ~/.codex/skills/hks-travel-skil
 ## 项目结构
 
 ```text
-WGX Travel Planning Skill/
+wgx-travel-skill/
 ├── hks-travel-skill/
 │   ├── SKILL.md
 │   ├── agents/
@@ -105,6 +105,10 @@ npm run check
 ## 第三方组件
 
 前端模板内置 Leaflet 1.9.4 和 Lucide 0.468.0。许可与版权信息见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+## 维护者
+
+本仓库由 Freddy Wang（[@FreddyWang-02](https://github.com/FreddyWang-02)）维护。
 
 ## 许可证
 

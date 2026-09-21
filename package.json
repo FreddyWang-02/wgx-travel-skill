@@ -1,8 +1,13 @@
 {
-  "name": "hks-travel-skill",
+  "name": "wgx-travel-skill",
   "version": "4.12.0",
   "private": true,
   "type": "module",
+  "author": "Freddy Wang",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreddyWang-02/wgx-travel-skill.git"
+  },
   "scripts": {
     "audit": "node scripts/audit-public-tree.mjs",
     "test": "node --test tests/*.test.mjs",

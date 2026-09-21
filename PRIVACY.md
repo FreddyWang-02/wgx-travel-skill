@@ -1,6 +1,6 @@
 # 开源隐私边界 / Open-source privacy boundary
 
-本文定义 Hks-Travel-Skill 公开仓库允许包含的内容，以及必须留在本地或云平台 Secret 系统中的内容。
+本文定义 WGX Travel Skill 公开仓库允许包含的内容，以及必须留在本地或云平台 Secret 系统中的内容。
 
 ## 可以公开
 

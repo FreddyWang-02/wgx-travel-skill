@@ -1,8 +1,8 @@
-# WGX Travel Planning Skill
+# WGX Travel Skill
 
 English · [中文](README.md)
 
-WGX Travel Planning Skill is a travel-planning skill for Codex and compatible agents. It connects destination research, route approval, six visual previews, TravelPack generation, editable web deployment, and safe upgrades of existing sites.
+WGX Travel Skill is a travel-planning skill for Codex and compatible agents. It connects destination research, route approval, six visual previews, TravelPack generation, editable web deployment, and safe upgrades of existing sites.
 
 Current version: `4.12.0`<br>
 Skill ID: `hks-travel-skill`
@@ -38,8 +38,8 @@ These screenshots come from a real deployment. They were reviewed for public rel
 Clone the repository and copy the skill directory into your agent's Skills directory:
 
 ```bash
-git clone https://github.com/FreddyWang-02/WGX Travel Planning Skill.git
-cp -R WGX Travel Planning Skill/hks-travel-skill ~/.codex/skills/hks-travel-skill
+git clone https://github.com/FreddyWang-02/wgx-travel-skill.git
+cp -R wgx-travel-skill/hks-travel-skill ~/.codex/skills/hks-travel-skill
 ```
 
 For another compatible agent, place `hks-travel-skill/` in the Skills directory documented by that product. Restart or refresh the agent and confirm that `$hks-travel-skill` is available.
@@ -54,7 +54,7 @@ Confirm my preferences and route first, show me the UI styles, and deploy an edi
 To upgrade an existing deployment:
 
 ```text
-Use the latest WGX Travel Planning Skill to upgrade this site: <site URL>.
+Use the latest WGX Travel Skill to upgrade this site: <site URL>.
 Preserve the database, user edits, attachments, access links, and domain. Back up first, then verify both edit and read-only flows.
 ```
 
@@ -69,7 +69,7 @@ Inject credentials through the host identity system, secret manager, or environm
 ## Repository layout
 
 ```text
-WGX Travel Planning Skill/
+wgx-travel-skill/
 ├── hks-travel-skill/
 │   ├── SKILL.md
 │   ├── agents/
@@ -105,6 +105,10 @@ Read [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md), and the [open-source 
 ## Third-party software
 
 The frontend template bundles Leaflet 1.9.4 and Lucide 0.468.0. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for license notices.
+
+## Maintainer
+
+This repository is maintained by Freddy Wang ([@FreddyWang-02](https://github.com/FreddyWang-02)).
 
 ## License
 

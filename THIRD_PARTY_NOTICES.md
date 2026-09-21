@@ -1,6 +1,6 @@
 # Third-party notices
 
-Hks-Travel-Skill bundles the following browser libraries so generated previews can run without a package installation step.
+WGX Travel Skill bundles the following browser libraries so generated previews can run without a package installation step.
 
 ## Leaflet 1.9.4
 
