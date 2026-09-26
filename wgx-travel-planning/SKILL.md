@@ -1,6 +1,6 @@
 ---
 name: wgx-travel-planning
-description: Research a destination, let the user review and choose the travel app style, generate strictly validated TravelPack 1.1.0, deploy the editable five-module web app, and safely upgrade existing deployments while preserving user data. Use for creating, updating, deploying, or upgrading a cloud travel guide; exclude direct booking, payment, generic report pages, static-only final delivery, and unconfirmed deployment.
+description: AI 原生旅行规划助手。适用场景：做旅行攻略、逐日行程规划、旅行计划表、家庭出游或结伴出行的路线与预算安排，以及更新、重新规划、部署或安全升级已有的旅行 Web App。工作流为「研究目的地 → 在真实浏览器预览里让用户亲自挑选 UI 风格 → 生成严格校验的 TravelPack 1.1.0 JSON → 部署可编辑、可保存、可分享的五模块旅行应用（概览 / 行程 / 准备 / 记账 / 资料）→ 在保留用户数据的前提下升级既有部署」。不适用场景：直接订票与支付、普通报告页、把静态 UI 预览当作最终交付、以及未经用户确认的部署。当用户提出旅行攻略 / itinerary / travel plan / trip planner 类需求时使用本技能。
 ---
 
 # WGX Travel Planning Skill｜旅行规划生成器
