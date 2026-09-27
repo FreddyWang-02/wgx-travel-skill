@@ -6,6 +6,10 @@
 
 ## 未发布
 
+**兼容性修复**
+
+- `wrangler.jsonc.template` 更名为 `wrangler.template.json`：消除 SkillHub 等平台上传校验对 .template 扩展名的拦截；无脚本引用该文件，纯更名，功能不变
+
 **文档与元数据**
 
 - README / README_EN 重写：补齐安装路径、五模块说明、hosts 支持矩阵，并按真实代码校正文案
