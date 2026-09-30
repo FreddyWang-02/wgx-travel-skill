@@ -42,6 +42,8 @@ WorkBuddy 官方说明：<https://www.workbuddy.ai/docs/workbuddy/From-Beginner-
 
 ### 用户需要腾讯网页底图时的引导
 
+可直接复用示例适配器 `assets/map-connectors/tencent-gl-adapter.example.mjs`（含 WGS84 → GCJ-02 转换、逐日标记、路线示意与 `map.destroy()` 清理；默认 proxy 模式走 WorkBuddy Key 代理，own-key 模式使用用户自填 Key）。以下为 Key 申请与配置步骤：
+
 1. 打开腾讯位置服务控制台：<https://lbs.qq.com/dev/console/application/mine>，登录后进入“应用管理 → 我的应用”。
 2. 创建应用并添加 Key，启用 JavaScript API GL；需要网页运行时地点搜索时再启用 WebService API。
 3. 为 JavaScript API GL 配置正式站点的精确域名白名单。测试通配符只能用于短期排查，上线前必须收紧。
