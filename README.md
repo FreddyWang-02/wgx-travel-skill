@@ -37,8 +37,6 @@ Created and maintained by **Freddy Wang**
 当前版本：`1.0.0`  
 Skill ID：`wgx-travel-planning`
 
-> 迁移兼容 ID：`hks-travel-skill`、`travel-guide-builder`。这两个 ID 仅用于升级既有部署时识别旧版本清单，不作为展示名，也不会写入新生成的清单。
-
 ---
 
 ## 一次完整调用会发生什么？
