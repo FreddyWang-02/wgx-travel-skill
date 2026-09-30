@@ -1,7 +1,8 @@
 # WGX Travel Planning Skill
 
-**From "I want 9 days in Yunnan" to a travel site you can edit, share, and keep.**  
-从一句「我想去云南玩 9 天」开始，最后交付一个你能自己改、能分享、能一直用的旅行网站。
+**From "I want 9 days in Yunnan" to a trip page you can check, change, plan and share on the go — right from your phone's home screen.**  
+从一句「我想去云南玩 9 天」开始，最后变成一个旅途中随时能查看、修改、规划、分享的旅行攻略网页，添加到手机桌面随时打开。  
+它能帮你：排行程、看地图、记待办、算 AA 账、存票据，收藏攻略网页一点直达，还能把链接发给同行的人。
 
 Created and maintained by **Freddy Wang**
 

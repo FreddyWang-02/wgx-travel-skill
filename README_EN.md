@@ -1,6 +1,8 @@
 # WGX Travel Planning Skill
 
-**From "I want 9 days in Yunnan" to a travel site you can edit, share, and keep.**
+**From "I want 9 days in Yunnan" to a trip page you can check, change, plan and share on the go — right from your phone's home screen.**
+
+It helps you plan days, see routes, track to-dos, split costs, keep tickets, save travel links that open in one tap — and share it all with your travel mates.
 
 Created and maintained by **Freddy Wang**
 
