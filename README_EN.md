@@ -1,6 +1,6 @@
 # WGX Travel Planning Skill
 
-**From travel research to an editable travel workspace.**
+**From "I want 9 days in Yunnan" to a travel site you can edit, share, and keep.**
 
 Created and maintained by **Freddy Wang**
 

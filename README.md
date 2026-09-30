@@ -1,7 +1,7 @@
 # WGX Travel Planning Skill
 
-**From travel research to an editable travel workspace.**  
-从旅行研究、路线规划到可编辑旅行网站，一套 Skill 完成旅行计划的生成、执行、分享与持续维护。
+**From "I want 9 days in Yunnan" to a travel site you can edit, share, and keep.**  
+从一句「我想去云南玩 9 天」开始，最后交付一个你能自己改、能分享、能一直用的旅行网站。
 
 Created and maintained by **Freddy Wang**
 
