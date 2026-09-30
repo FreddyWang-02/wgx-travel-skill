@@ -57,12 +57,18 @@ function loadTencentSdk({ mode, serviceHost, ownKey }) {
       }
       window._TMapSecurityConfig = { serviceHost };
     }
+    // GL JS 是两段式加载：script.onload 时 TMap 全局可能尚未就绪，需轮询等待。
+    const waitForGlobal = (startedAt) => {
+      if (window.TMap) return resolve(window.TMap);
+      if (Date.now() - startedAt > 10000) return reject(new Error("腾讯地图 SDK 加载超时"));
+      setTimeout(() => waitForGlobal(startedAt), 120);
+    };
     const script = document.createElement("script");
     script.src = mode === "own-key"
       ? `https://map.qq.com/api/gljs?v=1.exp&key=${encodeURIComponent(ownKey || "请在腾讯位置服务 lbs.qq.com 申请 Web 端 Key 并替换此占位符")}`
       : "https://map.qq.com/api/gljs?v=1.exp";
     script.async = true;
-    script.onload = () => (window.TMap ? resolve(window.TMap) : reject(new Error("TMap 加载失败")));
+    script.onload = () => waitForGlobal(Date.now());
     script.onerror = () => reject(new Error("腾讯地图 SDK 加载失败，请检查网络"));
     document.head.appendChild(script);
   });
@@ -70,8 +76,8 @@ function loadTencentSdk({ mode, serviceHost, ownKey }) {
 
 export function createTencentMapAdapter({ mode = "proxy", serviceHost = "", ownKey = "" } = {}) {
   return createTravelMapAdapter({
-    provider: "腾讯地图",
-    mount: async ({ container, days }) => {
+    provider: "腾讯",
+    mount: async ({ element: container, days }) => {
       const TMap = await loadTencentSdk({ mode, serviceHost, ownKey });
       const stops = (days || []).flatMap((day) => (day.stops || []).filter((s) => s.location));
       if (!stops.length) return undefined;
